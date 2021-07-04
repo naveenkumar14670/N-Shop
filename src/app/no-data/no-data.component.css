@@ -1,0 +1,12 @@
+#noDataContainer {
+  margin: 30px auto;
+}
+
+#noDataContainer img {
+  width: 400px;
+  height: 400px;
+}
+
+#noDataContainer h1 {
+  color: crimson;
+}

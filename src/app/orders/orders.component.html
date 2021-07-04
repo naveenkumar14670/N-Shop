@@ -1,0 +1,89 @@
+<div id="orderContainer">
+  <h1 id="orderHeading">Shipping</h1>
+  <div id="orderContent">
+    <div id="orderAddressPart">
+      <form [formGroup]="form" (ngSubmit)="handleSubmit($event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            autocomplete="off"
+          />
+          <div
+            *ngIf="name?.touched && name?.invalid"
+            class="alert alert-danger mt-1"
+          >
+            Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="addressLine1"
+            placeholder="line 1"
+            formControlName="addressLine1"
+            autocomplete="off"
+          />
+          <div
+            *ngIf="addressLine1?.touched && addressLine1?.invalid"
+            class="alert alert-danger mt-1"
+          >
+            Address Line 1 is required
+          </div>
+          <input
+            type="text"
+            class="form-control mt-4"
+            id="addressLine2"
+            placeholder="line 2"
+            formControlName="addressLine2"
+            autocomplete="off"
+          />
+          <div
+            *ngIf="addressLine2?.touched && addressLine2?.invalid"
+            class="alert alert-danger mt-1"
+          >
+            Address Line 2 is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            formControlName="city"
+            autocomplete="off"
+          />
+          <div
+            *ngIf="city?.touched && city?.invalid"
+            class="alert alert-danger mt-1"
+          >
+            City is required
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+          Place Order
+        </button>
+      </form>
+    </div>
+    <div id="orderSummaryPart">
+      <h2>Order Summary</h2>
+      <h5 class="mb-3">You have {{ total }} items in your shopping cart.</h5>
+      <div class="orderSummaryContent" *ngFor="let product of products">
+        <p class="productData">{{ product.itemCount }} x {{ product.name }}</p>
+        <p class="productData">
+          {{ product.price * product.itemCount | currency: "INR" }}
+        </p>
+      </div>
+      <div class="orderSummaryContent">
+        <p class="productTotal">Total</p>
+        <p class="productTotal">{{ cost | currency: "INR" }}</p>
+      </div>
+    </div>
+  </div>
+</div>

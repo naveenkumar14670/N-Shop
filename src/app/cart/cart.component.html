@@ -1,0 +1,78 @@
+<div id="cartContainer">
+  <table
+    class="table table-hover align-middle caption-top"
+    *ngIf="this.items.length !== 0; else nodata"
+  >
+    <caption>
+      <div id="cartHeading">
+        <h4>You have {{ total }} items in your shopping cart.</h4>
+        <button class="btn btn-warning" (click)="removeAllItemsFromCart()">
+          Clear Shopping Cart
+        </button>
+      </div>
+    </caption>
+    <thead class="table-light" style="text-align: center">
+      <tr>
+        <th scope="col" class="col-1">Image</th>
+        <th scope="col" class="col-1">Product</th>
+        <th scope="col" class="col-2">Quantity</th>
+        <th scope="col" class="col-2">Price</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center">
+      <tr class="" *ngFor="let item of items">
+        <td>
+          <img
+            src="{{ item.imageURL }}"
+            alt="product-added"
+            class="cartItemImage"
+          />
+        </td>
+        <td>
+          <h5>{{ item.name }}</h5>
+        </td>
+        <td>
+          <div class="incrementButtons">
+            <button
+              class="btn btn-outline-success m-2"
+              (click)="decrementInCart(item)"
+            >
+              -
+            </button>
+            <span class="itemCount"> {{ item.itemCount }} in cart </span>
+            <button
+              href="#"
+              class="btn btn-outline-success m-2"
+              (click)="incrementInCart(item)"
+            >
+              +
+            </button>
+          </div>
+        </td>
+        <td>{{ item.price * item.itemCount | currency: "INR" }}</td>
+      </tr>
+      <tr class="table-light">
+        <th colspan="3" style="color: crimson">Total</th>
+        <th>
+          {{ totalCost | currency: "INR" }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <button
+    class="btn btn-success"
+    routerLink="/orders"
+    style="align-items: center"
+    [disabled]="this.items.length === 0"
+    (click)="checkOut()"
+    *ngIf="this.items.length !== 0"
+  >
+    Checkout
+  </button>
+  <ng-template #nodata>
+    <no-data
+      [title]="'Cart Is Empty'"
+      [imageURL]="'assets/images/nodata.png'"
+    ></no-data>
+  </ng-template>
+</div>

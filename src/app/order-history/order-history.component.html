@@ -1,0 +1,58 @@
+<div id="orderHistoryContainer" class="container">
+  <div class="noData p-4" style="text-align: center">
+    <no-data
+      *ngIf="orders.length === 0; else orderHistory"
+      [title]="'No Order History'"
+      [imageURL]="'assets/images/nodata.png'"
+    ></no-data>
+  </div>
+  <ng-template #orderHistory>
+    <h1>Order History</h1>
+    <div class="orderSummary" *ngFor="let order of orders">
+      <div class="summaryPart">
+        <div class="orderSummaryHeader">
+          <div class="headerLeft">
+            <h2>Order Summary</h2>
+            <h5 class="mb-3">You have ordered {{ order.total }} items.</h5>
+          </div>
+          <div class="headerRight">
+            <span class="orderDate"> Date: {{ order.orderDate }} </span>
+            <br />
+            <div
+              class="orderBadge-delivered"
+              *ngIf="
+                currentTime - order.deliveryTime > 30000;
+                else notDelivered
+              "
+            >
+              Delivered
+              <span class="material-icons">download_done</span>
+            </div>
+            <ng-template #notDelivered>
+              <div class="orderBadge-notDelivered">Not Delivered</div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="orderSummaryContent" *ngFor="let product of order.products">
+          <p class="productData">
+            {{ product.itemCount }} x {{ product.name }}
+          </p>
+          <p class="productData">
+            {{ product.price * product.itemCount | currency: "INR" }}
+          </p>
+        </div>
+        <div class="orderSummaryContent">
+          <p class="productTotal">Total</p>
+          <p class="productTotal">{{ order.cost | currency: "INR" }}</p>
+        </div>
+      </div>
+      <div class="addressPart">
+        <h5>Shipping Address</h5>
+        <p class="addressValue">{{ order.deliveryTo }}</p>
+        <p class="addressValue">{{ order.addressLine1 }}</p>
+        <p class="addressValue">{{ order.addressLine2 }}</p>
+        <p class="addressValue">{{ order.city }}</p>
+      </div>
+    </div>
+  </ng-template>
+</div>

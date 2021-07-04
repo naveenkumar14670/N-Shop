@@ -1,0 +1,112 @@
+#orderHistoryContainer {
+  margin-top: 80px;
+}
+#orderHistoryContainer h1 {
+  color: crimson;
+}
+.orderSummary {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.summaryPart {
+  padding: 20px 25px;
+  margin: 20px 50px 20px 50px;
+  height: fit-content;
+  border: 1px solid lightgray;
+}
+
+.addressPart {
+  padding: 20px 25px;
+  margin: 20px 50px 20px 50px;
+  height: fit-content;
+  border: 1px solid lightgray;
+}
+
+.addressPart h5 {
+  color: crimson;
+}
+
+.addressValue {
+  margin: 0 0 0 5px;
+}
+
+.orderSummaryHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+h5 {
+  margin-left: 4px !important;
+}
+
+.headerRight {
+  height: fit-content;
+  padding: 10px;
+}
+
+.orderDate {
+  font-size: medium;
+  font-weight: 500;
+}
+
+.orderBadge-delivered {
+  background-color: #28a745;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.orderBadge-notDelivered {
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.orderSummaryContent {
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.productData {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+}
+
+.productTotal {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 900px) {
+  #orderHistoryContainer {
+    margin-top: 50px;
+  }
+  .orderSummary {
+    grid-template-columns: 3fr;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px -5px gray;
+  }
+  #orderHistoryContainer h1 {
+    margin-bottom: 15px;
+  }
+  .orderSummaryHeader {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

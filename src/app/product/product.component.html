@@ -1,0 +1,21 @@
+<img src="{{ item.imageURL }}" class="card-img-top card-img" alt="..." />
+<h3 class="card-title">{{ item.name }}</h3>
+<div class="card-body">
+  <h5 class="card-title">{{ item.price | currency: "INR" }}</h5>
+  <button
+    *ngIf="addedToCart === false; else incrementButtons"
+    class="btn btn-danger addToCartButton"
+    (click)="addToCart()"
+  >
+    Add to Cart
+  </button>
+  <ng-template #incrementButtons>
+    <div class="incrementButtons">
+      <button class="btn btn-danger" (click)="decrementInCart()">-</button>
+      <span class="itemCount">{{ itemCount }} in cart</span>
+      <button href="#" class="btn btn-danger" (click)="incrementInCart()">
+        +
+      </button>
+    </div>
+  </ng-template>
+</div>

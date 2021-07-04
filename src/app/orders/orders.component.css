@@ -1,0 +1,63 @@
+#orderContainer {
+  margin-top: 75px;
+  padding: 30px;
+}
+
+#orderContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#orderAddressPart {
+  padding: 15px 20px;
+  height: fit-content;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: large;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+#orderHeading {
+  margin-left: 20px;
+}
+#orderSummaryPart {
+  padding: 20px 25px;
+  border: 1px solid lightgray;
+  height: fit-content;
+}
+.orderSummaryContent {
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.productData {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+}
+
+.productTotal {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 900px) {
+  #orderContainer {
+    margin-top: 50px;
+  }
+  #orderContent {
+    grid-template-columns: 2fr;
+  }
+}

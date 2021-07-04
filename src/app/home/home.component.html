@@ -1,0 +1,21 @@
+<div id="homeContainer">
+  <div id="categoryContainer">
+    <div id="categoryContainerContent">
+      <ul>
+        <li
+          *ngFor="let category of categories; let i = index"
+          class="categoryItem"
+          [class.activeCategoryItem]="activeCategory === i"
+          (click)="changeActiveCategory(i)"
+        >
+          {{ category }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="itemsContainer">
+    <div class="card" *ngFor="let item of filteredItems">
+      <app-product [item]="item"></app-product>
+    </div>
+  </div>
+</div>

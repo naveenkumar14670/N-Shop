@@ -1,0 +1,36 @@
+<div class="profileContainer">
+  <div class="card">
+    <div class="card-header">
+      <div id="profilePhoto">
+        <img class="card-img-top" src="{{ userData.imageURL }}" alt="profile" />
+        <div id="profilePhotoContent">
+          <input
+            type="file"
+            id="profilePhotoInput"
+            accept="image/*"
+            (change)="handleImageInput($event)"
+          />
+          <span class="material-icons cameraIcon">add_a_photo</span>
+          <p>CHANGE</p>
+          <p>PROFILE PIC</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="cardInfo">
+        <h5 class="cardInfoLabel">Name</h5>
+        <h5 class="cardInfoValue">: {{ userData.displayName }}</h5>
+      </div>
+      <div class="cardInfo">
+        <h5 class="cardInfoLabel">Email</h5>
+        <h5 class="cardInfoValue">: {{ userData.email }}</h5>
+      </div>
+      <div class="cardInfo">
+        <h5 class="cardInfoLabel">Admin</h5>
+        <h5 class="cardInfoValue">
+          : {{ userData.isAdmin ? "True" : "False" }}
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>

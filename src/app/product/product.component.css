@@ -1,0 +1,38 @@
+.card-img {
+  width: 25vw;
+  height: 40vh;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 10px;
+}
+.card-body {
+  padding: 0;
+  text-align: center;
+}
+.card-title {
+  text-align: left;
+  padding: 0 0 10px 10px;
+}
+.addToCartButton {
+  padding: 10px;
+  margin: 10px;
+  width: 95%;
+}
+.incrementButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.itemCount {
+  padding: 0 5px;
+}
+
+@media only screen and (max-width: 900px) {
+  .addToCartButton {
+    margin: 0 0 5px 0;
+  }
+  .card-img {
+    width: 45vw;
+    height: 40vh;
+  }
+}
