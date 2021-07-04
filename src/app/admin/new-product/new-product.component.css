@@ -47,7 +47,6 @@ button {
 
 @media only screen and (max-width: 900px) {
   .newProductContainer {
-    background-color: lightblue;
     margin-top: 50px;
     grid-template-columns: 2fr;
     justify-content: center;
